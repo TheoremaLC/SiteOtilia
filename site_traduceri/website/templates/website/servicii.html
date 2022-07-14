@@ -1,0 +1,105 @@
+{% extends 'website/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+  <!-- practice section -->
+  <section class="practice_section layout_padding">
+    <div class="container">
+      <div class="d-flex flex-column align-items-center">
+        <h3 class="text-uppercase">
+          Serviciile mele
+        </h3>
+      </div>
+      <div class="practice_container">
+        <div class="practice_box">
+          <div class="practice_img-box">
+            <img src="{% static 'website/images/lawyer_icon1.png' %}" alt="">
+          </div>
+          <h4>
+            Traduceri
+          </h4>
+        </div>
+        <div class="practice_box">
+          <div class="practice_img-box">
+            <img src="{% static 'website/images/lawyer_icon2.png' %}" alt="">
+          </div>
+          <h4>
+            Traduceri Legalizate
+          </h4>
+        </div>
+        <div class="practice_box">
+          <div class="practice_img-box">
+            <img src="{% static 'website/images/lawyer_icon3.png' %}" alt="">
+          </div>
+          <h4>
+            Interpretariat
+
+
+          </h4>
+        </div>
+        <div class="practice_box">
+          <div class="practice_img-box">
+            <img src="{% static 'website/images/lawyer_icon4.png' %}" alt="">
+          </div>
+          <h4>
+            Meditatii
+
+
+          </h4>
+        </div>
+      </div>
+      <div class="practice_detail">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim
+        </p>
+        <div class="d-flex justify-content-center">
+          <a href="" class="sub_call_to-btn ">
+            <span>
+              Read More
+            </span>
+            <img src="{% static 'website/images/right-arrow.png' %}" alt="">
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- end practice section -->
+
+  <!-- info section -->
+  <section class="info_section">
+    <div class="container ">
+      <div class="row custom_border-btm center pb-4" style="
+          justify-content: center;">
+        <div class="col-md-4 info_logo">
+          <h2>
+            Octavia Andrei
+          </h2>
+          <p>
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+            some form, by injected humour, or
+          </p>
+        </div>
+        <div class="col-md-4 info_address">
+          <h5>
+            Addresa
+          </h5>
+          <p>
+            passages of Lorem Ipsum available, but the majority have
+          </p>
+          <p>
+            (+71) 1234567890
+          </p>
+          <p>
+            demo@gmail.com
+          </p>
+        </div>
+      </div>
+  <!-- end info section -->
+{% endblock %}

@@ -1,3 +1,25 @@
+import json
+from django.core.exceptions import ImproperlyConfigured
+import os
+from pathlib import Path
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+KEYSDIR = str(BASE_DIR)+"/keys.json"
+
+with open(KEYSDIR) as k:
+    project_keys = json.loads(k.read())
+
+def getKey(setting,project_keys=project_keys):
+    try:
+        return project_keys[setting]
+    except KeyError:
+        errorMessage = "Set the {} env var".format(setting)
+        raise ImproperlyConfigured(errorMessage)
+
 """
 Django settings for site_traduceri project.
 
@@ -10,25 +32,38 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-import os
-from pathlib import Path
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
+
+# Database
+# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "db.sqlite3",
+    }
+}
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
+#BASE_DIR = Path(__file__).resolve().parent.parent
+#TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-g_h6j^+%ov)lhe7q1$eh#o#_zxr9%k9&*&i7a)e$p78@&%i*ob"
+SECRET_KEY=os.getenv('SECRET_KEY')
+#SECRET_KEY = getKey("SECRETKEY")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
-
+ALLOWED_HOSTS = ['Petek.pythonanywhere.com']
 
 # Application definition
 
@@ -79,7 +114,7 @@ WSGI_APPLICATION = "site_traduceri.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": "db.sqlite3",
     }
 }
 
@@ -128,3 +163,5 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+

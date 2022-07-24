@@ -368,7 +368,8 @@ a:focus {
 
 /* contact section */
 .contact_section .col-md-6 {
-  padding-bottom: 10px;
+  padding-bottom: -50px;
+  padding-top:50px;
 }
 
 .contact_section input {
@@ -410,11 +411,11 @@ a:focus {
 
 .contact_section h2 {
   font-size: 26px;
-  color: #ffc107;
+  color: #fddd33;
   font-weight: bold;
 
   position: relative;
-  margin-left: 2.5%;
+  margin-left: 13%;
 }
 
 
@@ -434,7 +435,8 @@ a:focus {
 }
 
 .info_section .col-md-4 {
-  padding: 0 30px;
+  margin-left: 140px;
+  margin-right: 50px;
 }
 
 .container .custom_border-btm{
